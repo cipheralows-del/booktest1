@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #111;
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal {
+  width: 80%;
+  max-width: 900px;
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal img {
+  width: 100%;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: 1.2s ease;
+}
+
+.reveal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #111;
+  transform: translateX(0);
+  transition: transform 1.2s cubic-bezier(.77,0,.18,1);
+}
+
+.reveal.visible img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal.visible::after {
+  transform: translateX(100%);
+}
